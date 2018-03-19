@@ -1,4 +1,3 @@
-<%= simple_form_for(@list) do |f| %>
-  <%= f.input :title, placeholder: 'Nom de votre nouvelle liste', label:false %>
-  <%= f.submit "ajouter la liste", class: "btn btn-primary" %>
-<% end %>
+<%= render 'shared/new_list_form' %>
+
+<%= link_to 'annuler', root_path %>
