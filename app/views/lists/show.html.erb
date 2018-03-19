@@ -1,9 +1,14 @@
-<h2> This is the <%=@list.title %> </h2>
-
-<% @list_articles.each do |article| %>
-  <%= render 'articles/card', article: article  %>
-<% end %>
-
-<%= render 'shared/side_bar', lists: @lists %>
-
-<%= render 'shared/new_article_form', article: @article, list: @list %>
+<div class="page">
+  <div class="side-bar">
+    <%= render 'shared/side_bar', lists: @lists %>
+  </div>
+  <div class="main-content">
+    <h2> This is the <%=@list.title %> </h2>
+    <% @list_articles.each do |article| %>
+      <%= render 'articles/card', article: article  %>
+    <% end %>
+  </div>
+</div>
+<div class="new-article">
+  <%= render 'shared/new_article_form', article: @article, list: @list %>
+</div>

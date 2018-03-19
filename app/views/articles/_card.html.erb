@@ -1,2 +1,4 @@
-<%= cl_image_tag article.photo %>
-<%= article.description %>
+<div class="image-card">
+  <%= cl_image_tag article.photo, width: 700, crop: :fill %>
+  <p> <%= article.description %> </p>
+</div>
