@@ -1,0 +1,6 @@
+<h3>----this is the lists side bar-----</h3>
+<h2>hello</h2>
+<%= link_to 'add a list', new_list_path %>
+<% lists.each do |list| %>
+<li> <%= link_to "#{list.title}", {controller: "articles", action: "index", list: list.id } %></li>
+<% end %>
