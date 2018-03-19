@@ -1,0 +1,9 @@
+<h1>here are all your articles</h1>
+
+<% @articles.each do |article| %>
+<li><%= article.description %></li>
+  <% end %>
+
+
+<%= render 'shared/side_bar', lists: @lists %>
+<%= render 'shared/new_article_form', article: @article %>

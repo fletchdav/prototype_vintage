@@ -1,0 +1,7 @@
+<% if params[:list] %>
+  <%= simple_form_for(article) do |f| %>
+    <%= f.input :description, placeholder: 'Nom de votre nouvel article', label:false %>
+    <%= f.submit "ajouter l'article", class: "btn btn-primary" %>
+    <input id="list_id" name="list_id" type="hidden" value="<%= params[:list] %>">
+  <% end %>
+<% end %>
