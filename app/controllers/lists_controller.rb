@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+    skip_before_action :authenticate_user!, only: :show
+
   def show
     @lists = List.all
     @list = List.find(params[:id])
@@ -9,6 +11,7 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
+    authorize @list
   end
 
   def create

@@ -9,6 +9,8 @@ gem 'rails', '5.1.4'
 gem 'redis'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
+gem 'devise'
+gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
