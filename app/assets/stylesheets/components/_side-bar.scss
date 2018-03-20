@@ -1,0 +1,13 @@
+.side-bar {
+  padding: 0px 50px;
+  ul {
+    text-decoration: none;
+    padding: 0px 0px;
+  }
+  li {
+    list-style-type: none;
+    a.active {
+      font-weight: bolder;
+    }
+  }
+}
