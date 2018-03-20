@@ -1,2 +1,7 @@
-<%= cl_image_tag article.photo %>
-<%= article.description %>
+<div class="image-card">
+  <%= cl_image_tag article.photo, width: 350, crop: :fill %>
+  <p> <%= article.description %> </p>
+  <%=  link_to "effacer", list_article_path(@list, article), method: :delete  %>
+  <%=  link_to "editer", edit_list_article_path(@list, article) %>
+  <%= render 'shared/new_article_form', list:@list, article: article %>
+</div>

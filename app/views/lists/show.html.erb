@@ -1,9 +1,29 @@
-<h2> This is the <%=@list.title %> </h2>
+ <%= render 'shared/navbar' %>
+<!-- <div class="header">
+  <%= render 'shared/header' %>
+</div> -->
+<div class="page">
+<!--   <div class="side-bar">
+    <%= render 'shared/side_bar', lists: @lists %>
+  </div> -->
+  <div class="main-content">
+      <div class="container">
+        <div class="row">
+          <% @list_articles.each do |article| %>
+            <div class="col-xs-12 col-sm-4">
+              <%= render 'articles/card', article: article  %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="new-article">
+    <h4>Ajouter un article</h3>
+  <%= render 'shared/new_article_form', article: @article, list: @list %>
+</div>
 
-<% @list_articles.each do |article| %>
-  <%= render 'articles/card', article: article  %>
-<% end %>
-
-<%= render 'shared/side_bar', lists: @lists %>
-
-<%= render 'shared/new_article_form', article: @article, list: @list %>
+<div class="edit-list">
+  <h4>Modifier le nom de la liste</h3>
+  <%= render 'shared/new_list_form', list: @list %>
+</div>

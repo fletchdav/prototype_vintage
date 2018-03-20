@@ -1,18 +1,26 @@
 /* Main navbar */
 .navbar-wagon {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
   transition: all 0.3s ease;
-  height: 70px;
+  height: 140px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.left {
+  display:flex;
+  align-items: center;
+  h2 {
+    margin-left: 30px;
+  }
+}
+
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
+.navbar-wagon-brand {
+  height: 100px;
+  border-radius: 50%;
 }
 
 /* User Avatar */

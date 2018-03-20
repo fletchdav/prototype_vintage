@@ -1,6 +1,15 @@
-<h3>----this is the lists side bar-----</h3>
-<% lists.each do |list| %>
-<li><%= link_to list.title, list_path(list)  %></li>
-<% end %>
-<li><%= link_to 'home', root_path %></li>
-<li><%= link_to 'add a list', new_list_path %></li>
+<ul>
+  <% lists.each do |list| %>
+  <% if params[:id].to_i == list.id %>
+    <li><%= link_to list.title, list_path(list),{class:"active"} %></li>
+    <% else %>
+    <li><%= link_to list.title, list_path(list) %></li>
+    <% end %>
+  <% end %>
+  <% if params[:action] == "home" %>
+    <li><%= link_to 'home', root_path,{class:"active"} %></li>
+  <% else %>
+    <li><%= link_to 'home', root_path %></li>
+  <% end %>
+  <li><%= link_to 'add a list', new_list_path %></li>
+</ul>
