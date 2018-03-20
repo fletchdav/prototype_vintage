@@ -11,6 +11,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    article = Article.find(params[:id])
+    list = List.find(params[:list_id])
+    show = article.shows.where(:list_id == params[:list_id])
+    show.first.destroy
+    redirect_to list_path(list)
+  end
+
   private
   def article_params
     params.require(:article).permit(:description, :photo)

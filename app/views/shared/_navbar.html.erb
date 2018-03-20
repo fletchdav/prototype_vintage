@@ -1,27 +1,28 @@
 <div class="navbar-wagon">
+<div class="left">
   <!-- Logo -->
   <%= link_to root_path do %>
   <%= cl_image_tag 'logo', class:"navbar-wagon-brand" %>
   <% end %>
   <h2 class="title">Prototype <br /> Vintage</h2>
+</div>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Products</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">About</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Contact</a>
-
-    <!-- Profile picture with dropdown list -->
-<!--     <div class="navbar-wagon-item">
+    <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <div data-toggle="dropdown"> Produits </div>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Log Out</a></li>
+          <% @lists.each do |list| %>
+            <li><%= link_to list.title, list_path(list) %></li>
+          <% end %>
         </ul>
       </div>
-    </div> -->
+    </div>
+    <div class="navbar-wagon-item">Mood</div>
+    <div class="navbar-wagon-item">About</div>
+    <div class="navbar-wagon-item">Contact</div>
+    <%= link_to 'add a list', new_list_path, {class:"navbar-wagon-item"} %>
+
   </div>
 
   <!-- Dropdown appearing on mobile only -->

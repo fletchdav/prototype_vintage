@@ -1,13 +1,12 @@
-<%= render 'shared/navbar' %>
-<div class="header">
+ <%= render 'shared/navbar' %>
+<!-- <div class="header">
   <%= render 'shared/header' %>
-</div>
+</div> -->
 <div class="page">
-  <div class="side-bar">
+<!--   <div class="side-bar">
     <%= render 'shared/side_bar', lists: @lists %>
-  </div>
+  </div> -->
   <div class="main-content">
-      <h2> <%=@list.title %> </h2>
       <div class="container">
         <div class="row">
           <% @list_articles.each do |article| %>
