@@ -18,12 +18,23 @@
     </div>
   </div>
 </div>
-<div class="new-article">
-    <h4>Ajouter un article</h3>
-  <%= render 'shared/new_article_form', article: @article, list: @list %>
-</div>
+<% if policy(Article).new? %>
+  <div class="new-article">
+      <h4>Ajouter un article</h3>
+    <%= render 'shared/new_article_form', article: @article, list: @list %>
+  </div>
+<% end %>
 
-<div class="edit-list">
-  <h4>Modifier le nom de la liste</h3>
-  <%= render 'shared/new_list_form', list: @list %>
-</div>
+<% if policy(@list).edit? %>
+  <div class="edit-list">
+    <h4>Modifier le nom de la liste</h3>
+    <%= render 'shared/new_list_form', list: @list %>
+  </div>
+<% end %>
+
+<% if policy(@list).destroy? %>
+  <div class="destroy-list">
+    <h4>supprimer la liste</h3>
+      <%= link_to "supprimer", list_path(@list), method: :delete %>
+  </div>
+<% end %>

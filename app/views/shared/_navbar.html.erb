@@ -21,8 +21,14 @@
     <div class="navbar-wagon-item">Mood</div>
     <div class="navbar-wagon-item">About</div>
     <div class="navbar-wagon-item">Contact</div>
-    <%= link_to 'add a list', new_list_path, {class:"navbar-wagon-item"} %>
-
+    <%=  link_to 'add a list', new_list_path, {class:"navbar-wagon-item"} if current_user && current_user.admin %>
+    <% if user_signed_in? %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+      <% end %>
+    <% else %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
   </div>
 
   <!-- Dropdown appearing on mobile only -->
