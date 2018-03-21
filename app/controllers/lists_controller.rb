@@ -1,9 +1,10 @@
 class ListsController < ApplicationController
-    skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: :show
 
   def show
     @lists = List.all
     @list = List.find(params[:id])
+    authorize @list
     @list_articles = []
     @list.shows.each { |show| @list_articles << show.article }
     @article = Article.new
@@ -16,6 +17,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    authorize @list
     if @list.save
       redirect_to list_path(@list)
     else
@@ -25,8 +27,15 @@ class ListsController < ApplicationController
 
     def update
     @list = List.find(params[:id])
+    authorize @list
     @list.update(list_params)
     redirect_to list_path(@list)
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    @list.destroy
+    redirect_to root_path
   end
 
   private

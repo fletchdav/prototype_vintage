@@ -1,19 +1,23 @@
-class ListPolicy < ApplicationPolicy
+class ArticlePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope
     end
   end
 
-  def new?
-    create?
-  end
-
   def create?
     user_is_admin?
   end
 
+  def edit?
+    update?
+  end
+
   def update?
+    user_is_admin?
+  end
+
+  def destroy?
     user_is_admin?
   end
 
