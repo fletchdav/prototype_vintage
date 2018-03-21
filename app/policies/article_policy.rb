@@ -24,7 +24,7 @@ class ArticlePolicy < ApplicationPolicy
   private
 
   def user_is_admin?
-    user.admin
+    user && user.admin
   end
 
 end
