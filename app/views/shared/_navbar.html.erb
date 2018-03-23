@@ -2,25 +2,33 @@
 <div class="left">
   <!-- Logo -->
   <%= link_to root_path do %>
-  <%= cl_image_tag 'logo', class:"navbar-wagon-brand" %>
+  <%= cl_image_tag 'logo_blanc', class:"navbar-wagon-brand" %>
   <% end %>
   <h2 class="title">Prototype <br /> Vintage</h2>
 </div>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <div class="navbar-wagon-item">
+    <div class="navbar-wagon-item navbar-wagon-link">
       <div class="dropdown">
         <div data-toggle="dropdown"> Produits </div>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <% @lists.each do |list| %>
+          <% @lists.reject{|list|list.is_special}.each do |list| %>
             <li><%= link_to list.title, list_path(list) %></li>
           <% end %>
         </ul>
       </div>
     </div>
-    <div class="navbar-wagon-item">Mood</div>
-    <div class="navbar-wagon-item">About</div>
-    <div class="navbar-wagon-item">Contact</div>
+    <% @special_lists.each do |special_list| %>
+      <div class="navbar-wagon-item">
+        <%= link_to special_list.title, list_path(special_list), class: "navbar-wagon-link" %>
+      </div>
+    <% end %>
+    <div class="navbar-wagon-item">
+      <%= link_to "About", about_path, class: "navbar-wagon-link" %>
+    </div>
+    <div class="navbar-wagon-item">
+      <%= link_to "Contact", contact_path, class: "navbar-wagon-link" %>
+    </div>
     <%=  link_to 'add a list', new_list_path, {class:"navbar-wagon-item"} if current_user && current_user.admin %>
     <% if user_signed_in? %>
       <%= link_to destroy_user_session_path, method: :delete do %>

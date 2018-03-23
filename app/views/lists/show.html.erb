@@ -7,6 +7,17 @@
     <%= render 'shared/side_bar', lists: @lists %>
   </div> -->
   <div class="main-content">
+  <% if @list.is_special %>
+    <div class="container">
+      <div class="row">
+        <% @list_articles.each do |article| %>
+          <div class="col-xs-12">
+              <%= render 'articles/big_card', article: article  %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
       <div class="container">
         <div class="row">
           <% @list_articles.each do |article| %>
@@ -15,9 +26,12 @@
             </div>
           <% end %>
         </div>
-    </div>
+      </div>
+  <% end %>
   </div>
+
 </div>
+
 <% if policy(Article).new? %>
   <div class="new-article">
       <h4>Ajouter un article</h3>
