@@ -1,5 +1,7 @@
+<div class="list-form">
   <%= simple_form_for (@list) do |f| %>
     <%= f.input :title, placeholder: 'Nom de votre nouvelle liste', label:false %>
     <%= f.input :is_special, label:"liste spéciale" %>
     <%= f.submit "ok d'accord", class: "btn btn-prototype" %>
   <% end %>
+</div>
