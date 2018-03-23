@@ -2,9 +2,7 @@
   <%= cl_image_tag article.photo, class:"big-screen" %>
   <p> <%= article.description %> </p>
   <% if policy(article).edit? %>
-  <div class="image-edit">
     <%=  link_to "effacer", list_article_path(@list, article), method: :delete  %>
     <%= render 'shared/new_article_form', list:@list, article: article %>
   <% end %>
-  </div>
 </div>

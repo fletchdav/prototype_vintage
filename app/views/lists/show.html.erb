@@ -2,34 +2,22 @@
 <!-- <div class="header">
   <%= render 'shared/header' %>
 </div> -->
-<div class="page">
-<!--   <div class="side-bar">
-    <%= render 'shared/side_bar', lists: @lists %>
-  </div> -->
-  <div class="main-content">
-  <% if @list.is_special %>
-    <div class="container">
-      <div class="row">
-        <% @list_articles.each do |article| %>
-          <div class="col-xs-12">
-              <%= render 'articles/big_card', article: article  %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  <% else %>
-      <div class="container">
-        <div class="row">
-          <% @list_articles.each do |article| %>
-            <div class="col-xs-12 col-sm-4">
-              <%= render 'articles/card', article: article  %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-  <% end %>
-  </div>
 
+
+<div class="container">
+  <% if @list.is_special %>
+    <% @list_articles.each do |article| %>
+      <%= render 'articles/big_card', article: article %>
+    <% end %>
+  <% else %>
+    <div class="row">
+      <% @list_articles.each do |article| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render 'articles/card', article: article %>
+        </div>
+      <% end %>
+    </div>
+<% end %>
 </div>
 
 <% if policy(Article).new? %>
