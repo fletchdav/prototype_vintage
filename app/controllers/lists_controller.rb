@@ -3,6 +3,7 @@ class ListsController < ApplicationController
 
   def show
     @lists = List.all
+    @special_lists = List.where(is_special: true)
     @list = List.find(params[:id])
     authorize @list
     @list_articles = []
@@ -41,7 +42,7 @@ class ListsController < ApplicationController
 
   private
   def list_params
-    params.require(:list).permit(:title)
+    params.require(:list).permit(:title, :is_special)
   end
 
 end
