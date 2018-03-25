@@ -1,4 +1,11 @@
 class ArticlesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
+  def index
+    @lists = List.all
+    @articles = policy_scope(Article)
+    @shootings = Shooting.all
+  end
 
   def create
     @list = List.find(params[:list_id])

@@ -1,0 +1,10 @@
+ <%= render 'shared/navbar' %>
+<div class="container">
+  <div class="row">
+    <% @articles.each do |article| %>
+    <div class="col-xs-12 col-sm-2">
+      <%= render 'articles/small_card', article: article %>
+    </div>
+    <% end %>
+  </div>
+</div>

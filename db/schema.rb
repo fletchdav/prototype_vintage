@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322155927) do
+ActiveRecord::Schema.define(version: 20180325172943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,28 @@ ActiveRecord::Schema.define(version: 20180322155927) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_special", default: false
+  end
+
+  create_table "shoot_shows", force: :cascade do |t|
+    t.bigint "shoot_id"
+    t.bigint "shooting_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shoot_id"], name: "index_shoot_shows_on_shoot_id"
+    t.index ["shooting_id"], name: "index_shoot_shows_on_shooting_id"
+  end
+
+  create_table "shootings", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shoots", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo"
   end
 
   create_table "shows", force: :cascade do |t|
@@ -58,6 +80,8 @@ ActiveRecord::Schema.define(version: 20180322155927) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "shoot_shows", "shootings"
+  add_foreign_key "shoot_shows", "shoots"
   add_foreign_key "shows", "articles"
   add_foreign_key "shows", "lists"
 end
