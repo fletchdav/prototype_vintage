@@ -9,6 +9,7 @@ class ListsController < ApplicationController
     @list_articles = []
     @list.shows.each { |show| @list_articles << show.article }
     @article = Article.new
+    @shootings = Shooting.all || []
   end
 
   def new

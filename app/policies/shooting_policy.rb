@@ -1,20 +1,16 @@
-class ArticlePolicy < ApplicationPolicy
+class ShootingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope
     end
   end
 
-  def index?
-    true
+  def new?
+    create?
   end
 
   def create?
     user_is_admin?
-  end
-
-  def edit?
-    update?
   end
 
   def update?
@@ -30,5 +26,4 @@ class ArticlePolicy < ApplicationPolicy
   def user_is_admin?
     user && user.admin
   end
-
 end
