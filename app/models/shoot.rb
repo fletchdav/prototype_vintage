@@ -1,5 +1,5 @@
 class Shoot < ApplicationRecord
   mount_uploader :photo, PhotoUploader
-  has_many :shows, dependent: :destroy
+  has_many :shoot_shows, dependent: :destroy
   validates :photo, presence: true
 end
