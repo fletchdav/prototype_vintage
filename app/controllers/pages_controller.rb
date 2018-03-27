@@ -22,6 +22,10 @@ class PagesController < ApplicationController
   end
 
   def activity
+    @list = List.new
+    @lists = List.all || []
+    @special_lists = List.where(is_special: true)
+    @shootings = Shooting.all || []
   end
 end
 

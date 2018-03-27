@@ -45,8 +45,16 @@
       <% else %>
         <%= link_to "Contact", contact_path, class:"navbar-wagon-link"%>
       <% end %>
-
     </div>
+
+    <div class="navbar-wagon-item">
+      <%if params[:action] == "activity" %>
+        <%= link_to "Activity", contact_path, class:"navbar-wagon-link navbar-active" %>
+      <% else %>
+        <%= link_to "Activity", activity_path, class:"navbar-wagon-link"%>
+      <% end %>
+    </div>
+
     <% if user_signed_in? %>
       <%= link_to destroy_user_session_path, method: :delete do %>
         <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
