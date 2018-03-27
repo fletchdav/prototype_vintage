@@ -1,0 +1,12 @@
+<div class="back">
+  <%= link_to list_path(@list) do %>
+    <i class="fa fa-times-circle"></i>
+  <% end %>
+</div>
+<div class="container">
+  <div class="back">
+  </div>
+  <div class="image-card">
+<%= cl_image_tag @article.photo, class:"big-screen" %>
+  </div>
+</div>
