@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     authorize @article
-    @list = List.find(params[:list_id])
+    @list = List.find(params[:list_id]) if params[:list_id]
   end
 
   def create

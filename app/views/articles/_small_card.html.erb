@@ -1,3 +1,14 @@
+<div class="image-container">
 <div class="image-card">
-    <%= cl_image_tag article.photo, width: 150, crop: :fill %>
+      <div class="image-photo">
+
+        <%= cl_image_tag article.photo, class:"image-photo-picture" %>
+
+      <%= link_to article_path(article) do %>
+      <div class="description">
+        <p> <%= article.description %> </p>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

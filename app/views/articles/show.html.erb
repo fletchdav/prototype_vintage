@@ -1,6 +1,12 @@
 <div class="back">
-  <%= link_to list_path(@list) do %>
-    <i class="fa fa-times-circle"></i>
+  <% if params[:list_id] %>
+    <%= link_to list_path(@list) do %>
+      <i class="fa fa-times-circle"></i>
+    <% end %>
+  <% else %>
+    <%= link_to articles_path do %>
+      <i class="fa fa-times-circle"></i>
+    <% end %>
   <% end %>
 </div>
 <div class="container">
