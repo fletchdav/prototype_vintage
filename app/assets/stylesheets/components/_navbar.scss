@@ -11,6 +11,21 @@
   top: 0 !important;
   z-index: 1;
   opacity: 0.8;
+  transition: ease 0.5s;
+}
+
+.navbar-hidden {
+  opacity: 0;
+  transition: ease 0.5s;
+}
+
+.navbar-active {
+  border-bottom: 1px solid black;
+  color: black;
+}
+
+a.navbar-active {
+  color: black;
 }
 
 .left {
