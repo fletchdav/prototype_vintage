@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     @lists = List.all
-    @articles = policy_scope(Article)
+    @articles = policy_scope(Article).select{|article| article.shows.count > 0}
     @shootings = Shooting.all
   end
 

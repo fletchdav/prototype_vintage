@@ -1,10 +1,6 @@
  <%= render 'shared/navbar' %>
 <div class="container">
-  <div class="row">
     <% @shoots.each do |shoot| %>
-    <div class="col-xs-12 col-sm-2">
-      <p>hello</p>
-    </div>
+      <%= render 'shoots/big_card_index', shoot: shoot %>
     <% end %>
-  </div>
 </div>
