@@ -10,7 +10,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <div class="navbar-wagon-item navbar-wagon-link">
       <div class="dropdown">
-        <div data-toggle="dropdown"> Produits </div>
+        <div data-toggle="dropdown" class= <%= "navbar-active" if params[:controller] == "articles" || params[:controller] == "lists" %>> Produits </div>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to "tous les produits", articles_path %></li>
           <% @lists.each do |list| %>
@@ -22,7 +22,7 @@
     </div>
     <div class="navbar-wagon-item navbar-wagon-link">
       <div class="dropdown">
-        <div data-toggle="dropdown"> Moods </div>
+        <div data-toggle="dropdown" class= <%= "navbar-active" if params[:controller] == "shootings" || params[:controller] == "shoots" %> > Moods </div>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to "tous les moods", shoots_path %></li>
           <% @shootings.each do |shooting| %>
