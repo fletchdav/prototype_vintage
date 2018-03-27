@@ -3,6 +3,7 @@
   p {
     margin-bottom: 0px;
   }
+  position: relative;
 }
 
 .big-screen {
@@ -10,7 +11,33 @@
   height: auto;
 }
 
+.description {
+  position:absolute;
+  top:0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: black;
+  opacity: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    p {
+    color: white;
+  }
+}
+
+.description:hover {
+  opacity: 0.8;
+  transition: 0.3s ease;
+}
 
 .image-edit {
   // display: flex;
+}
+
+.image-photo-picture {
+  width: 100%;
+  height: auto;
 }

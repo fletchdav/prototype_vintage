@@ -1,0 +1,18 @@
+<div class="back">
+  <% if params[:list_id] %>
+    <%= link_to list_path(@list) do %>
+      <i class="fa fa-times-circle"></i>
+    <% end %>
+  <% else %>
+    <%= link_to articles_path do %>
+      <i class="fa fa-times-circle"></i>
+    <% end %>
+  <% end %>
+</div>
+<div class="container">
+  <div class="back">
+  </div>
+  <div class="image-card">
+<%= cl_image_tag @article.photo, class:"big-screen" %>
+  </div>
+</div>

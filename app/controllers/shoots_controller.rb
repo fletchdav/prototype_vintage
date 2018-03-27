@@ -4,7 +4,7 @@ class ShootsController < ApplicationController
   def index
     @lists = List.all
     @shootings = Shooting.all
-    @shoots = policy_scope(Shoot)
+    @shoots = policy_scope(Shoot).select{|shoot| shoot.shoot_shows.count > 0}
   end
 
   def create

@@ -1,8 +1,18 @@
-<div class="image-card">
-  <%= cl_image_tag article.photo, width: 350, crop: :fill %>
-  <p> <%= article.description %> </p>
-  <% if policy(article).edit? %>
-    <%=  link_to "effacer", list_article_path(@list, article), method: :delete  %>
-    <%= render 'shared/new_article_form', list:@list, article: article %>
-  <% end %>
+<div class="image-container">
+  <div class="image-card">
+      <div class="image-photo">
+
+        <%= cl_image_tag article.photo, class:"image-photo-picture" %>
+
+      <%= link_to list_article_path(@list, article) do %>
+      <div class="description">
+        <p> <%= article.description %> </p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+    <% if policy(article).edit? %>
+      <%=  link_to "effacer", list_article_path(@list, article), method: :delete  %>
+      <%= render 'shared/new_article_form', list:@list, article: article %>
+    <% end %>
 </div>

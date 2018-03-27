@@ -1,10 +1,16 @@
 class ArticlesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @lists = List.all
-    @articles = policy_scope(Article)
+    @articles = policy_scope(Article).select{|article| article.shows.count > 0}
     @shootings = Shooting.all
+  end
+
+  def show
+    @article = Article.find(params[:id])
+    authorize @article
+    @list = List.find(params[:list_id]) if params[:list_id]
   end
 
   def create
