@@ -27,5 +27,5 @@ class PagesController < ApplicationController
     @special_lists = List.where(is_special: true)
     @shootings = Shooting.all || []
   end
-end
 
+end
