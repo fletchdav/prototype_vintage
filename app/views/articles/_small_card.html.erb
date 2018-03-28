@@ -6,7 +6,7 @@
 
       <%= link_to article_path(article) do %>
       <div class="description">
-        <p> <%= article.description %> </p>
+        <%= simple_format(article.description) %>
       </div>
       <% end %>
     </div>
