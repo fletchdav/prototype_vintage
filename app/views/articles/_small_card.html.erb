@@ -1,14 +1,13 @@
 <div class="image-container">
-<div class="image-card">
-      <div class="image-photo">
-
-        <%= cl_image_tag article.photo, class:"image-photo-picture" %>
-
+  <div class="image-card">
+    <div class="image-photo">
+      <%= cl_image_tag article.photo, class:"image-photo-picture" %>
       <%= link_to article_path(article) do %>
-      <div class="description">
-        <%= simple_format(article.description) %>
-      </div>
+        <div class="description">
+          <%= simple_format(article.description) %>
+        </div>
       <% end %>
     </div>
   </div>
+  <%= print_color_palette article.colors %>
 </div>

@@ -1,9 +1,7 @@
 <div class="image-container">
   <div class="image-card">
       <div class="image-photo">
-
         <%= cl_image_tag article.photo, class:"image-photo-picture" %>
-
       <%= link_to list_article_path(@list, article) do %>
       <div class="description">
         <%= simple_format(article.description) %>
@@ -11,6 +9,7 @@
       <% end %>
     </div>
   </div>
+  <%= print_color_palette article.colors %>
     <% if policy(article).edit? %>
       <%=  link_to "effacer", list_article_path(@list, article), method: :delete  %>
       <%= render 'shared/new_article_form', list:@list, article: article %>

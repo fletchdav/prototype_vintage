@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
     authorize @article
     if @article.save
       Show.create(article: @article, list: @list)
+      colors
       redirect_to list_path(@list)
     else
       redirect_to list_path(@list)
@@ -55,4 +56,18 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:description, :photo)
   end
+
+  def colors
+    article = Article.last
+    url = article.photo.url
+    photo = Camalian::load(url)
+    colors = photo.prominent_colors(100).sort_similar_colors
+    colors.each do |color|
+      unless c = Color.where(r: color.r, g: color.g, b: color.b).first
+        c = Color.create(r: color.r, g: color.g, b: color.b, h: color.h, s: color.s, l: color.l)
+      end
+      article.colors << c
+    end
+  end
+
 end
