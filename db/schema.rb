@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180325172943) do
+ActiveRecord::Schema.define(version: 20180329144653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "article_colors", force: :cascade do |t|
+    t.bigint "color_id"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_colors_on_article_id"
+    t.index ["color_id"], name: "index_article_colors_on_color_id"
+  end
 
   create_table "articles", force: :cascade do |t|
     t.text "description"
@@ -22,6 +31,17 @@ ActiveRecord::Schema.define(version: 20180325172943) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.integer "r"
+    t.integer "g"
+    t.integer "b"
+    t.float "h"
+    t.float "s"
+    t.float "l"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lists", force: :cascade do |t|
@@ -80,6 +100,8 @@ ActiveRecord::Schema.define(version: 20180325172943) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "article_colors", "articles"
+  add_foreign_key "article_colors", "colors"
   add_foreign_key "shoot_shows", "shootings"
   add_foreign_key "shoot_shows", "shoots"
   add_foreign_key "shows", "articles"
