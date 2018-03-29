@@ -1,11 +1,6 @@
 <div class="list-form">
-  <%= simple_form_for (list) do |f| %>
+  <%= simple_form_for(list) do |f| %>
     <%= f.input :title, placeholder: 'Titre', label:false %>
     <%= f.submit "ok d'accord", class: "btn btn-prototype" %>
   <% end %>
 </div>
-
-
-<select class="selectpicker">
-  <option data-content="<span class='label label-success'>Relish</span>">Relish</option>
-</select>
