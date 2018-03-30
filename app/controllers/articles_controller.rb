@@ -36,7 +36,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     authorize @article
     @list = List.find(params[:list_id])
+    raise
     if @article.update(article_params)
+      @article.size = params[:article][:size][1]
+      @article.save
       colors_cropped
       redirect_to list_path(@list)
     else
