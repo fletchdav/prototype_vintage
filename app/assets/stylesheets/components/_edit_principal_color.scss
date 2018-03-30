@@ -1,0 +1,18 @@
+.color-choices {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.color-choice {
+  flex: 0 0 5%;
+  padding-bottom: 20px;
+  border-radius: 5px;
+  &:hover {
+    border: 2px solid white;
+  }
+  &.active {
+    border: 1px solid red;
+  }
+}

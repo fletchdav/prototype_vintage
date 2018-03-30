@@ -27,19 +27,18 @@
     <input class="form-control hidden" type="hidden" name="article[photo_cache]" id="article_photo_cache">
   </div>
 
+    <div class="form-group">
       <label class="control-label check_boxes optional">Size</label>
-  <%  article.colors.each do |color| %>
-
-    <div class="form-group check_boxes optional article_size">
       <input type="hidden" name="article[size][]" value="">
-      <span class="checkbox">
-        <label for="article_size_956">
-          <input class="check_boxes optional" type="checkbox" value="956" name="article[size][]" id="article_size_956"> <%= color.id.to_s %>
-        </label>
-      </span>
+      <div class="color-choices">
+        <%  article.colors.each do |color| %>
+          <div class="color-choice" style="background: <%= color.to_hex %>">
+            <label for="article_size_<%= color.id %>"></label>
+            <input class="hidden" type="checkbox" value="<%= color.id %>" name="article[size][]" id="article_size_p<%= color.id %>"> <%= color.id.to_s %>
+          </div>
+        <% end %>
+      </div>
     </div>
-
-  <% end %>
 
     <input type="submit" name="commit" value="ok d'accord" class="btn btn-prototype" data-disable-with="ok d'accord">
 </form>
