@@ -63,7 +63,6 @@ class ArticlesController < ApplicationController
     article.colors.destroy_all
     url = article.photo.url
     photo = Camalian::load(url)
-    colors = photo.prominent_colors(100).sort_similar_colors
     colors.each do |color|
       unless c = Color.where(r: color.r, g: color.g, b: color.b).first
         c = Color.create(r: color.r, g: color.g, b: color.b, h: color.h, s: color.s, l: color.l)
