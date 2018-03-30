@@ -12,6 +12,6 @@
   <%= print_color_palette article.colors %>
     <% if policy(article).edit? %>
       <%=  link_to "effacer", list_article_path(@list, article), method: :delete  %>
-      <%= render 'shared/new_article_form', list:@list, article: article %>
+      <%= render 'shared/edit_article_principal_color', list:@list, article: article %>
     <% end %>
 </div>

@@ -1,0 +1,7 @@
+  <%= simple_form_for [list, article] do |f| %>
+    <%= f.input :description, placeholder: 'Description', label:false %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :size, collection: article.colors, as: :check_boxes %>
+    <%= f.submit "ok d'accord", class: "btn btn-prototype" %>
+  <% end %>

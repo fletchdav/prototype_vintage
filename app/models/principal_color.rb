@@ -1,0 +1,2 @@
+class PrincipalColor < ApplicationRecord
+end
