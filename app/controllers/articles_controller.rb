@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
     authorize @article
     if @article.save
       Show.create(article: @article, list: @list)
-      colors
+      colors_cropped
       redirect_to list_path(@list)
     else
       redirect_to list_path(@list)
@@ -37,6 +37,7 @@ class ArticlesController < ApplicationController
     authorize @article
     @list = List.find(params[:list_id])
     if @article.update(article_params)
+      colors_cropped
       redirect_to list_path(@list)
     else
       render :edit
@@ -59,6 +60,7 @@ class ArticlesController < ApplicationController
 
   def colors
     article = Article.last
+    article.colors.destroy_all
     url = article.photo.url
     photo = Camalian::load(url)
     colors = photo.prominent_colors(100).sort_similar_colors
@@ -70,4 +72,17 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def colors_cropped
+    article = Article.last
+    article.colors.destroy_all
+    url = article.photo.url(:color)
+    photo = Camalian::load(url)
+    colors = photo.prominent_colors(50).sort_similar_colors
+    colors.each do |color|
+      unless c = Color.where(r: color.r, g: color.g, b: color.b).first
+        c = Color.create(r: color.r, g: color.g, b: color.b, h: color.h, s: color.s, l: color.l)
+      end
+      article.colors << c
+    end
+  end
 end
