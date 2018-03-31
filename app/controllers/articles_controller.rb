@@ -37,6 +37,7 @@ class ArticlesController < ApplicationController
     authorize @article
     @list = List.find(params[:list_id])
     if @article.update(article_params)
+      @article.save
       colors_cropped
       redirect_to list_path(@list)
     else
@@ -55,7 +56,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:description, :photo)
+    params.require(:article).permit(:size, :description, :photo)
   end
 
   def colors

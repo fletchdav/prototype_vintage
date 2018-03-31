@@ -1,4 +1,5 @@
-import "bootstrap";
-import { navbardown } from '../components/navbar';
-
+import { navbardown } from '../components/navbar'
 navbardown();
+
+import { colorchoice } from '../components/principalcolor'
+colorchoice();

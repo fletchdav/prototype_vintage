@@ -1,0 +1,21 @@
+<%= simple_form_for [list, article] do |f| %>
+  <%= f.input :description, placeholder: 'Description', label:false %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+<!--   <%= f.input :size, collection: article.colors.map{|color| color.id.to_s}, as: :radio_buttons %>
+ -->
+  <div class="form-group">
+    <label class="control-label radio_buttons optional">Main color</label>
+    <input type="hidden" name="article[size]" value="">
+
+    <div class="color-choices">
+      <% article.colors.each do |color| %>
+        <input type="radio" class="hidden" value="<%= color.id %>" name="article[size]" id="article_size_<%= color.id %>">
+        <label class="color-choice cc<%= article.id %>" style="background:<%= color.to_hex %>" for="article_size_<%= color.id %>"></label>
+      <% end %>
+    </div>
+  </div>
+
+
+  <%= f.submit "ok d'accord", class: "btn btn-prototype" %>
+<% end %>
