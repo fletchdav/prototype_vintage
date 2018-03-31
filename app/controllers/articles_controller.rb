@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:size, :description, :photo)
+    params.require(:article).permit(:chosen_color, :description, :photo)
   end
 
   def colors

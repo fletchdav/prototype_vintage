@@ -3,22 +3,12 @@
       <div class="image-photo">
         <%= cl_image_tag article.photo, class:"image-photo-picture" %>
       <%= link_to list_article_path(@list, article) do %>
-        <% if article.size.nil? || article.size == "" || article.size == "0" %>
-          <div class="description" style= "background:black">
+        <div class="description" style= "background: <%= article.article_color %>">
             <%= simple_format(article.description) %>
           </div>
-        <% else %>
-          <div class="description" style= "background: <%= Color.find(article.size.to_i).to_hex %>">
-            <%= simple_format(article.description) %>
-          </div>
-        <% end %>
       <% end %>
     </div>
   </div>
-  <%= print_color_palette article.colors %>
-  <% unless article.size.nil? || article.size == "" || article.size == "0" %>
-    <p style= "background: <%= Color.find(article.size.to_i).to_hex  if article.size %>"> <%= article.size %> </p>
-  <% end %>
     <% if policy(article).edit? %>
       <%=  link_to "effacer", list_article_path(@list, article), method: :delete  %>
       <%= render 'shared/edit_article_principal_color', list:@list, article: article %>

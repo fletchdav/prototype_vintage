@@ -7,6 +7,15 @@ class Article < ApplicationRecord
 
   after_save :extract_colors
 
+
+  def article_color
+    if self.chosen_color && self.chosen_color != "0" && self.chosen_color != ""
+      Color.find(self.chosen_color.to_i).to_hex
+    else
+      'black'
+    end
+  end
+
   private
 
   def extract_colors
@@ -19,4 +28,6 @@ class Article < ApplicationRecord
   #     self.colors << c
   #   end
   end
+
+
 end
