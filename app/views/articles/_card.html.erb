@@ -10,7 +10,7 @@
     </div>
   </div>
   <%= print_color_palette article.colors %>
-  <p> <%= article.size %> </p>
+  <p style= "background: <%= Color.find(article.size.to_i).to_hex  if article.size %>"> <%= article.size %> </p>
     <% if policy(article).edit? %>
       <%=  link_to "effacer", list_article_path(@list, article), method: :delete  %>
       <%= render 'shared/edit_article_principal_color', list:@list, article: article %>

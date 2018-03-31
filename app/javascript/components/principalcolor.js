@@ -1,9 +1,12 @@
-let color_choices = document.querySelectorAll('.color-choice');
 
 function colorchoice () {
-  color_choices.forEach((color_choice) => {
+
+  document.querySelectorAll('.color-choice').forEach((color_choice) => {
     color_choice.addEventListener('click', (event) => {
-      event.currentTarget.classList.toggle("active")
+      event.currentTarget.parentNode.querySelectorAll('.color-choice').forEach((color_choice)=> {
+       color_choice.classList.remove("active")
+      });
+      event.currentTarget.classList.add("active")
     });
   });
 };
