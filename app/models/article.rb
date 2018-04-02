@@ -16,6 +16,12 @@ class Article < ApplicationRecord
     end
   end
 
+  def article_color_rgb
+    if self.chosen_color && self.chosen_color != "0" && self.chosen_color != ""
+      Color.find(self.chosen_color.to_i)
+    end
+  end
+
   private
 
   def extract_colors

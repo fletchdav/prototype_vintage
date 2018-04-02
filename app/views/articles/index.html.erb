@@ -1,10 +1,16 @@
  <%= render 'shared/navbar' %>
-<div class="container">
+  <div class="articles-color">
+    <% @sorted_colors.each do |color| %>
+      <div class="article-color" data-color="<%= color %>" style= "background: <%= color %>">
+        <%= cl_image_tag 'logot', height:80 %>
+      </div>
+    <% end %>
+  </div>
+
+<div class="container cards">
   <div class="row">
     <% @articles.each do |article| %>
-    <div class="col-xs-12 col-sm-2">
       <%= render 'articles/small_card', article: article %>
-    </div>
     <% end %>
   </div>
 </div>
