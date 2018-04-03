@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="activity">
+    <div class="elements">
+      <%= render 'activities/activity_details', elements: @elements, activity: @activity %>
+    </div>
+    <div class="new_element">
+      <%= render 'elements/new', activity: @activity, element: @element %>
+    </div>
+    <%= link_to "retour aux activités", activities_path %>
+    <%= link_to "supprimer", activity_path(@activity), method: :delete %>
+  </div>
+</div>

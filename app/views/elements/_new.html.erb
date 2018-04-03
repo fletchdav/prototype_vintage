@@ -1,0 +1,11 @@
+  <h4>Ajouter un élément à l'activité</h4>
+  <%= simple_form_for [activity, element] do |f| %>
+  <p>Contenu (ne rien rentrer si c'est une photo)</p>
+    <%= f.input :content, placeholder: 'Texte du titre, du sous-titre, ou du paragraphe' , label:false %>
+    <p>Type d'élément</p>
+    <%= f.input :display, collection:['titre', 'sous-titre', 'paragraphe', 'photo'] , label:false %>
+    <p>Photo</p>
+    <%= f.input :photo, label: false %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.submit "ok d'accord", class: "btn btn-prototype" %>
+  <% end %>

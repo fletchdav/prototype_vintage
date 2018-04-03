@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403122945) do
+ActiveRecord::Schema.define(version: 20180403211249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position", default: 0
+  end
 
   create_table "article_colors", force: :cascade do |t|
     t.bigint "color_id"
@@ -43,6 +50,17 @@ ActiveRecord::Schema.define(version: 20180403122945) do
     t.float "l"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "elements", force: :cascade do |t|
+    t.integer "position", default: 0
+    t.text "content"
+    t.string "display"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "activity_id"
+    t.index ["activity_id"], name: "index_elements_on_activity_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -114,6 +132,7 @@ ActiveRecord::Schema.define(version: 20180403122945) do
 
   add_foreign_key "article_colors", "articles"
   add_foreign_key "article_colors", "colors"
+  add_foreign_key "elements", "activities"
   add_foreign_key "shoot_shows", "shootings"
   add_foreign_key "shoot_shows", "shoots"
   add_foreign_key "shows", "articles"

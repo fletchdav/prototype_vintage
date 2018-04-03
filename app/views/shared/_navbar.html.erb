@@ -33,10 +33,10 @@
       </div>
     </div>
     <div class="navbar-wagon-item">
-      <%if params[:action] == "activity" %>
-        <%= link_to "Activity", contact_path, class:"navbar-wagon-link navbar-active" %>
+      <%if params[:controller] == "activities" %>
+        <%= link_to "Activity", activities_path, class:"navbar-wagon-link navbar-active" %>
       <% else %>
-        <%= link_to "Activity", activity_path, class:"navbar-wagon-link"%>
+        <%= link_to "Activity", activities_path, class:"navbar-wagon-link"%>
       <% end %>
     </div>
 
