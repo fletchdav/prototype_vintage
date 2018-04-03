@@ -12,9 +12,34 @@ def create
   end
 end
 
+def edit
+  @activity = Activity.find(params[:activity_id])
+  @element = Element.find(params[:id])
+  authorize @element
+end
+
+def update
+  @element = Element.find(params[:id])
+  authorize @element
+  @activity = Activity.find(params[:activity_id])
+  if @element.update(element_params)
+    redirect_to activity_path(@activity)
+  else
+    render :edit
+  end
+end
+
+def destroy
+  @activity = Activity.find(params[:activity_id])
+  @element = Element.find(params[:id])
+  authorize @element
+  @element.destroy
+  redirect_to activity_path(@activity)
+end
+
 private
 def element_params
-  params.require(:element).permit(:tite, :display, :content, :photo)
+  params.require(:element).permit(:display, :content, :photo)
 end
 
 

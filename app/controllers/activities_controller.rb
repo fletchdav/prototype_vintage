@@ -24,7 +24,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
     authorize @activity
     if @activity.save
-      redirect_to activities_path
+      redirect_to activity_path(@activity)
     else
       redirect_to new_activity_path
     end
@@ -41,7 +41,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     authorize @activity
     @activity.destroy
-    redirect_to root_path
+    redirect_to activities_path
   end
 
   private

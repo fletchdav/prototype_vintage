@@ -4,8 +4,10 @@
   <div class="activities">
     <% @activities.each do |activity|%>
       <div class="activity">
-        <%= activity.title %>
-        <%= link_to "show", activity_path(activity) %>
+        <div class="elements">
+          <%= render 'activities/activity_details', elements: activity.elements %>
+        </div>
+        <%= link_to "éditer", activity_path(activity) %>
       </div>
     <% end %>
   </div>

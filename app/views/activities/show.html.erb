@@ -1,19 +1,10 @@
 <div class="container">
-  <div class="elements">
-  <% @elements.each do |element| %>
-    <% if element.display == 'titre' %>
-      <h2> <%= element.content %> </h2>
-    <% elsif element.display == 'sous-titre' %>
-      <h3> <%= element.content %> </h3>
-    <% elsif element.display == 'paragraphe' %>
-      <p> <%= simple_format(element.content) %> </p>
-     <% elsif element.display == 'photo' %>
-      <%= cl_image_tag element.photo, class:"big-screen" %>
-    <% end %>
-  <% end %>
-  </div>
-  <div class="new_element">
-    <%= render 'elements/new', activity: @activity, element: @element %>
-  </div>
+<div class="elements">
+  <%= render 'activities/activity_details', elements: @elements, activity: @activity %>
+</div>
+<div class="new_element">
+  <%= render 'elements/new', activity: @activity, element: @element %>
+</div>
   <%= link_to "retour aux activités", activities_path %>
+  <%= link_to "supprimer", activity_path(@activity), method: :delete %>
 </div>
