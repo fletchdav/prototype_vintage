@@ -21,6 +21,14 @@ class ElementPolicy < ApplicationPolicy
     user_is_admin?
   end
 
+  def up?
+    user_is_admin?
+  end
+
+  def down?
+    user_is_admin?
+  end
+
   private
 
   def user_is_admin?

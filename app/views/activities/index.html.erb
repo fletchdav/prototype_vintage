@@ -5,8 +5,23 @@
     <% @activities.each do |activity|%>
       <div class="activity">
         <div class="elements">
-          <%= render 'activities/activity_details', elements: activity.elements %>
+          <%= render 'activities/activity_details', elements: activity.elements, activity: activity %>
         </div>
+        <% if policy(activity).up? %>
+        <% unless activity == @activities.first %>
+          <%= link_to activity_up_path(activity) do %>
+            <i class="fa fa-chevron-circle-up"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if policy(activity).down? %>
+        <% unless activity == @activities.last %>
+          <%= link_to activity_down_path(activity) do %>
+            <i class="fa fa-chevron-circle-down"></i>
+          <% end %>
+        <% end %>
+      <% end %>
         <%= link_to "éditer", activity_path(activity) %>
       </div>
     <% end %>

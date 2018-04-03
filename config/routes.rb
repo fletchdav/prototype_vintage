@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   get 'down/:id', to: 'articles#down', as: :down
   get 'show_up/:id', to: 'lists#show_up', as: :show_up
   get 'show_down/:id', to: 'lists#show_down', as: :show_down
+  get 'element_up/:id', to: 'elements#up', as: :element_up
+  get 'element_down/:id', to: 'elements#down', as: :element_down
+  get 'activity_up/:id', to: 'activities#up', as: :activity_up
+  get 'activity_down/:id', to: 'activities#down', as: :activity_down
 
   resources :activities do
     resources :elements

@@ -1,10 +1,7 @@
 
 <% elements.each do |element| %>
   <div class="element-wrap">
-    <% if params[:action] == 'show' %>
-      <%= render 'activities/element_actions', elements: activity.elements, activity: activity, element: element %>
-    <% end %>
-    <div class="element-content">
+    <div class="element-content-for-index">
       <% if element.display == 'titre' %>
         <h2> <%= element.content %> </h2>
       <% elsif element.display == 'sous-titre' %>

@@ -1,0 +1,23 @@
+    <div class="element-actions">
+      <%= link_to activity_element_path(activity, element), method: :delete do %>
+        <i class="fa fa-trash"></i>
+      <% end %>
+      <%= link_to edit_activity_element_path(activity, element) do %>
+        <i class="fa fa-pencil"></i>
+      <% end %>
+      <% if policy(element).up? %>
+        <% unless element == elements.first %>
+          <%= link_to element_up_path(element) do %>
+            <i class="fa fa-chevron-circle-up"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if policy(element).down? %>
+        <% unless element == elements.last %>
+          <%= link_to element_down_path(element) do %>
+            <i class="fa fa-chevron-circle-down"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
