@@ -9,6 +9,21 @@
       <% end %>
     </div>
   </div>
+    <%= article.list_position(@list) %>
+    <% if policy(article.show(@list)).show_up? %>
+      <% unless article == @list_articles.first %>
+        <%= link_to show_up_path(article.show(@list)) do %>
+          <i class="fa fa-chevron-circle-up"></i>
+        <% end %>
+      <% end %>
+    <% end %>
+    <% if policy(article.show(@list)).show_down? %>
+      <% unless article == @list_articles.last %>
+        <%= link_to show_down_path(article.show(@list)) do %>
+          <i class="fa fa-chevron-circle-down"></i>
+        <% end %>
+      <% end %>
+    <% end %>
     <% if policy(article).edit? %>
       <%=  link_to "effacer", list_article_path(@list, article), method: :delete  %>
       <%= render 'shared/edit_article_principal_color', list:@list, article: article %>

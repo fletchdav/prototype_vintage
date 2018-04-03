@@ -3,11 +3,15 @@ class ArticlesController < ApplicationController
 
   def index
     @lists = List.all
-    # if params[:color]
-    #   @articles = policy_scope(Article).select{|article| article.shows.count > 0 && article.article_color == "##{params[:color]}" }
-    # else
-      @articles = policy_scope(Article).select{|article| article.shows.count > 0}
-    # end
+    @articles = policy_scope(Article)
+      .select{ |article| article.shows.count > 0 }
+      .sort_by { |article| article.position }
+    i = 1
+    @articles.each do |article|
+      article.position = i
+      article.save
+      i +=1
+    end
     @shootings = Shooting.all
     @sorted_colors = sorted_colors(@articles)
   end
@@ -59,6 +63,29 @@ class ArticlesController < ApplicationController
     redirect_to list_path(list)
   end
 
+
+  def up
+    @article = Article.find(params[:id])
+    authorize @article
+    article_to_downgrade = Article.find_by(position: @article.position - 1)
+    @article.position -= 1
+    article_to_downgrade.position += 1
+    @article.save
+    article_to_downgrade.save
+    redirect_to articles_path
+  end
+
+    def down
+    @article = Article.find(params[:id])
+    authorize @article
+    article_to_upgrade = Article.find_by(position: @article.position + 1)
+    @article.position += 1
+    article_to_upgrade.position -= 1
+    @article.save
+    article_to_upgrade.save
+    redirect_to articles_path
+  end
+
   private
   def article_params
     params.require(:article).permit(:chosen_color, :description, :photo)
@@ -82,7 +109,7 @@ class ArticlesController < ApplicationController
     article.colors.destroy_all
     url = article.photo.url(:color)
     photo = Camalian::load(url)
-    colors = photo.prominent_colors(50).sort_similar_colors
+    colors = photo.prominent_colors(20).sort_similar_colors
     colors.each do |color|
       unless c = Color.where(r: color.r, g: color.g, b: color.b).first
         c = Color.create(r: color.r, g: color.g, b: color.b, h: color.h, s: color.s, l: color.l)

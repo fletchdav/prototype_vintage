@@ -22,6 +22,14 @@ class Article < ApplicationRecord
     end
   end
 
+  def list_position(list)
+    self.shows.where(list: list).first.list_position
+  end
+
+  def show(list)
+    self.shows.where(list: list).first
+  end
+
   private
 
   def extract_colors
