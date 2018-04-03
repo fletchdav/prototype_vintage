@@ -3,8 +3,13 @@ class ArticlesController < ApplicationController
 
   def index
     @lists = List.all
-    @articles = policy_scope(Article).select{|article| article.shows.count > 0}
+    # if params[:color]
+    #   @articles = policy_scope(Article).select{|article| article.shows.count > 0 && article.article_color == "##{params[:color]}" }
+    # else
+      @articles = policy_scope(Article).select{|article| article.shows.count > 0}
+    # end
     @shootings = Shooting.all
+    @sorted_colors = sorted_colors(@articles)
   end
 
   def show
@@ -56,7 +61,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:size, :description, :photo)
+    params.require(:article).permit(:chosen_color, :description, :photo)
   end
 
   def colors
@@ -84,5 +89,18 @@ class ArticlesController < ApplicationController
       end
       article.colors << c
     end
+  end
+
+  def sorted_colors(articles)
+    colors = []
+    articles.each {|article| colors << article.article_color_rgb if article.article_color_rgb}
+    camalian_colors = colors.map{|color| Camalian::Color.new(color.r,color.g,color.b)}
+    camalian_palette_sorted = Camalian::Palette.new(camalian_colors).sort_similar_colors
+    sorted_colors = []
+    camalian_palette_sorted.each do |color|
+      color = Color.where(r: color.r, g: color.g, b: color.b, h: color.h, s: color.s, l: color.l).first
+      sorted_colors << color.to_hex
+    end
+    sorted_colors.uniq
   end
 end

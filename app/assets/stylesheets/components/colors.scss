@@ -1,0 +1,26 @@
+.articles-color {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.article-color {
+  opacity: 0.5;
+  &.active {
+    opacity: 1;
+  }
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
+
+.underline.active {
+  border-bottom: 1px solid black;
+  width: 30px;
+  margin: -10px auto 0px auto;
+}
+
+.article-color-wrap {
+    margin-right: -40px;
+}
