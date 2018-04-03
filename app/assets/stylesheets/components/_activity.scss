@@ -17,3 +17,10 @@
 .element-content {
   flex: 0 0 90%;
 }
+
+.element-content-for-index {
+  h1, h2, h3 {
+    margin: 0 0 0 0;
+  }
+  flex: 0 0 100%;
+}
