@@ -1,13 +1,18 @@
  <%= render 'shared/navbar' %>
+
+<div class="container cards">
   <div class="articles-color">
     <% @sorted_colors.each do |color| %>
-      <div class="article-color" data-color="<%= color %>" style= "background: <%= color %>">
-        <%= cl_image_tag 'logot', height:80 %>
+      <div class="article-color-wrap">
+        <div class="article-color" data-color="<%= color %>">
+          <%= render 'shared/logosvg', color:color %>
+        </div>
+        <div class="underline">
+          <p></p>
+        </div>
       </div>
     <% end %>
   </div>
-
-<div class="container cards">
   <div class="row">
     <% @articles.each do |article| %>
       <%= render 'articles/small_card', article: article %>

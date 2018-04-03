@@ -3,6 +3,7 @@ function betterColorPicker () {
   document.querySelectorAll('.article-color').forEach((rond)=> {
     rond.addEventListener('click', event => {
       rond.classList.toggle('active');
+      rond.nextElementSibling.classList.toggle('active');
       let cards = document.querySelectorAll('.colcard');
       let active_ronds = document.querySelectorAll('.article-color.active');
       let active_ronds_datasets = [];
