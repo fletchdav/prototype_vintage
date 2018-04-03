@@ -12,5 +12,9 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about', as: :about
   get 'contact', to: 'pages#contact', as: :contact
   get 'activity', to: 'pages#activity', as: :activity
+  get 'up/:id', to: 'articles#up', as: :up
+  get 'down/:id', to: 'articles#down', as: :down
+  get 'show_up/:id', to: 'lists#show_up', as: :show_up
+  get 'show_down/:id', to: 'lists#show_down', as: :show_down
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

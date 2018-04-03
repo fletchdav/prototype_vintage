@@ -10,5 +10,20 @@
         <% end %>
       </div>
     </div>
+      <% if policy(article).up? %>
+        <% unless article == @articles.first %>
+          <%= link_to up_path(article) do %>
+            <i class="fa fa-chevron-circle-up"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if policy(article).down? %>
+        <% unless article == @articles.last %>
+          <%= link_to down_path(article) do %>
+            <i class="fa fa-chevron-circle-down"></i>
+          <% end %>
+        <% end %>
+      <% end %>
   </div>
 </div>

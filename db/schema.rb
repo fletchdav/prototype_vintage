@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331172755) do
+ActiveRecord::Schema.define(version: 20180403122945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180331172755) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.integer "position", default: 0
   end
 
   create_table "colors", force: :cascade do |t|
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 20180331172755) do
     t.bigint "shooting_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "shooting_position", default: 0
     t.index ["shoot_id"], name: "index_shoot_shows_on_shoot_id"
     t.index ["shooting_id"], name: "index_shoot_shows_on_shooting_id"
   end
@@ -79,6 +81,7 @@ ActiveRecord::Schema.define(version: 20180331172755) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.integer "position", default: 0
   end
 
   create_table "shows", force: :cascade do |t|
@@ -86,6 +89,7 @@ ActiveRecord::Schema.define(version: 20180331172755) do
     t.bigint "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "list_position", default: 0
     t.index ["article_id"], name: "index_shows_on_article_id"
     t.index ["list_id"], name: "index_shows_on_list_id"
   end
