@@ -1,0 +1,6 @@
+<div class="activity-form">
+  <%= simple_form_for(@activity) do |f| %>
+    <%= f.input :title, placeholder: 'Titre', label:false %>
+    <%= f.submit "ok d'accord", class: "btn btn-prototype" %>
+  <% end %>
+</div>

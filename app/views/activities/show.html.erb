@@ -1,0 +1,6 @@
+<% @elements.each do |element| %>
+  <p> <%= element.content %> </p>
+<% end %>
+<div class="new_element">
+  <%= render 'elements/new', activity: @activity, element: @element %>
+</div>

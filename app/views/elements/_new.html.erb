@@ -1,0 +1,7 @@
+  <%= simple_form_for [activity, element] do |f| %>
+    <%= f.input :content, placeholder: 'Titre', label:false %>
+    <%= f.input :display, placeholder: 'Type', label:false %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.submit "ok d'accord", class: "btn btn-prototype" %>
+  <% end %>
