@@ -4,8 +4,10 @@
         <%= cl_image_tag article.photo, width: 400, crop: :scale, class:"image-photo-picture" %>
       <%= link_to list_article_path(@list, article) do %>
         <div class="description" style= "background: <%= article.article_color %>">
+          <div class="description-content">
             <%= simple_format(article.description) %>
           </div>
+        </div>
       <% end %>
     </div>
   </div>

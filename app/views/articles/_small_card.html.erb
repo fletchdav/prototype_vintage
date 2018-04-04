@@ -5,7 +5,9 @@
         <%= cl_image_tag article.photo, width: 300, crop: :scale, class:"image-photo-picture" %>
         <%= link_to article_path(article) do %>
           <div class="description" style= "background: <%= article.article_color %>">
-            <%= simple_format(article.description) %>
+            <div class="description-content-small">
+              <%= simple_format(article.description) %>
+            </div>
           </div>
         <% end %>
       </div>
