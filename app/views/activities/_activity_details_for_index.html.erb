@@ -9,7 +9,7 @@
       <% elsif element.display == 'paragraphe' %>
         <p> <%= simple_format(element.content) %> </p>
       <% elsif element.display == 'photo' %>
-      <%= cl_image_tag element.photo, class:"big-screen" %>
+      <%= cl_image_tag element.photo, class:"activity-photo" %>
       <% end %>
     </div>
   </div>

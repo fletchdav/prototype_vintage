@@ -1,7 +1,7 @@
 <div class="image-container">
   <div class="image-card">
       <div class="image-photo">
-        <%= cl_image_tag article.photo, class:"image-photo-picture" %>
+        <%= cl_image_tag article.photo, width: 400, crop: :scale, class:"image-photo-picture" %>
       <%= link_to list_article_path(@list, article) do %>
         <div class="description" style= "background: <%= article.article_color %>">
             <%= simple_format(article.description) %>
@@ -9,7 +9,6 @@
       <% end %>
     </div>
   </div>
-    <%= article.list_position(@list) %>
     <% if policy(article.show(@list)).show_up? %>
       <% unless article == @list_articles.first %>
         <%= link_to show_up_path(article.show(@list)) do %>
