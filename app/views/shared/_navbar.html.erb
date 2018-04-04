@@ -80,7 +80,7 @@
         <% @shootings.each do |shooting| %>
           <li style="text-indent: 10px"><%= link_to shooting.title, shooting_path(shooting) %></li>
         <% end %>
-        <li style="font-weight: bold"><%= link_to "News", articles_path %></li>
+        <li style="font-weight: bold"><%= link_to "News", activities_path %></li>
         <li style="font-weight: bold"><%= link_to "About", articles_path %></li>
         <li style="font-weight: bold"><%= link_to "Contact", articles_path %></li>
       </ul>
