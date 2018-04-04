@@ -5,7 +5,7 @@
 }
 
 .element-content {
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
     margin: 0 0 0 0;
   }
 }
@@ -19,15 +19,14 @@
 }
 
 .element-content-for-index {
-  h1, h2, h3 {
-    margin: 0 0 0 0;
-  }
   flex: 0 0 100%;
-  display: flex;
   align-items: center;
 }
 
-
+.activity {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
 
 .activity-photo {
   max-width: 100%;

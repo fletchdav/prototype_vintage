@@ -12,24 +12,15 @@
 
   <% if policy(Shoot).new? %>
     <div class="new-article">
-        <h4>Ajouter une photo</h3>
+        <h4>Ajouter une photo</h4>
       <%= render 'shared/new_shoot_form', shoot: @shoot, shooting: @shooting %>
     </div>
   <% end %>
 
   <% if policy(@shooting).edit? %>
     <div class="edit-list">
-      <h4>Modifier le nom du shooting</h3>
-      <%= render 'shared/new_list_form', list: @shooting %>
+      <h4>Editer le shooting</h4>
+      <%= render 'shared/edit_shooting_form', list: @shooting %>
     </div>
   <% end %>
-
-  <% if policy(@shooting).destroy? %>
-    <div class="destroy-list">
-      <h4>supprimer le shooting</h3>
-        <%= link_to "supprimer", shooting_path(@shooting), method: :delete %>
-    </div>
-  <% end %>
-
 </div>
-

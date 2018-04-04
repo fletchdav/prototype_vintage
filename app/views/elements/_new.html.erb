@@ -8,4 +8,10 @@
     <%= f.input :photo, label: false %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.submit "ok d'accord", class: "btn btn-prototype" %>
+    <%= link_to activities_path do %>
+      <div class="btn btn-prototype"> Retour aux activités</div>
+    <% end %>
+    <%= link_to activity_path(@activity), method: :delete, data: { confirm: "for sure ?" } do %>
+      <div class="btn btn-prototype-danger"> Supprimer l'activité</div>
+    <% end %>
   <% end %>

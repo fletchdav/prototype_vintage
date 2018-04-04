@@ -4,7 +4,7 @@
   <%= link_to root_path do %>
   <%= cl_image_tag 'logo_blanc', class:"navbar-wagon-brand" %>
   <% end %>
-  <h2 class="title">Prototype <br /> Vintage</h2>
+  <h2 class="title">Prototype Vintage</h2>
 </div>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -12,9 +12,9 @@
       <div class="dropdown">
         <div data-toggle="dropdown" class= <%= "navbar-active" if params[:controller] == "articles" || params[:controller] == "lists" %>> Produits </div>
         <ul class="dropdown-menu navbar-wagon-dropdown-menu">
-          <li><%= link_to "tous les produits", articles_path %></li>
+          <li style="font-weight: bold"><%= link_to "Tous les produits", articles_path %></li>
           <% @lists.each do |list| %>
-            <li><%= link_to list.title, list_path(list) %></li>
+            <li style="text-indent: 10px"><%= link_to list.title, list_path(list) %></li>
           <% end %>
           <li><%=  link_to '+ nouvelle liste', new_list_path if current_user && current_user.admin %></li>
         </ul>
@@ -24,9 +24,9 @@
       <div class="dropdown">
         <div data-toggle="dropdown" class= <%= "navbar-active" if params[:controller] == "shootings" || params[:controller] == "shoots" %> > Moods </div>
         <ul class="dropdown-menu navbar-wagon-dropdown-menu">
-          <li><%= link_to "tous les moods", shoots_path %></li>
+          <li style="font-weight: bold"><%= link_to "Tous les moods", shoots_path %></li>
           <% @shootings.each do |shooting| %>
-            <li><%= link_to shooting.title, shooting_path(shooting) %></li>
+            <li style="text-indent: 10px"><%= link_to shooting.title, shooting_path(shooting) %></li>
           <% end %>
             <li><%=  link_to '+ nouveau mood', new_shooting_path if current_user && current_user.admin %></li>
         </ul>
@@ -34,9 +34,9 @@
     </div>
     <div class="navbar-wagon-item">
       <%if params[:controller] == "activities" %>
-        <%= link_to "Activity", activities_path, class:"navbar-wagon-link navbar-active" %>
+        <%= link_to "News", activities_path, class:"navbar-wagon-link navbar-active" %>
       <% else %>
-        <%= link_to "Activity", activities_path, class:"navbar-wagon-link"%>
+        <%= link_to "News", activities_path, class:"navbar-wagon-link"%>
       <% end %>
     </div>
 
@@ -67,14 +67,23 @@
   </div>
 
   <!-- Dropdown appearing on mobile only -->
-<!--   <div class="navbar-wagon-item hidden-md hidden-lg">
+
+  <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Host</a></li>
-        <li><a href="#">Trips</a></li>
-        <li><a href="#">Messagese</a></li>
+        <li style="font-weight: bold"><%= link_to "Tous les produits", articles_path %></li>
+        <% @lists.each do |list| %>
+          <li style="text-indent: 10px"><%= link_to list.title, list_path(list) %></li>
+        <% end %>
+        <li style="font-weight: bold"><%= link_to "Tous les moods", articles_path %></li>
+        <% @shootings.each do |shooting| %>
+          <li style="text-indent: 10px"><%= link_to shooting.title, shooting_path(shooting) %></li>
+        <% end %>
+        <li style="font-weight: bold"><%= link_to "News", articles_path %></li>
+        <li style="font-weight: bold"><%= link_to "About", articles_path %></li>
+        <li style="font-weight: bold"><%= link_to "Contact", articles_path %></li>
       </ul>
     </div>
-  </div> -->
+  </div>
 </div>

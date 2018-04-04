@@ -3,7 +3,7 @@
   <div class="element-wrap">
     <div class="element-actions">
       <% if policy(element).edit? %>
-        <%= link_to activity_element_path(activity, element), method: :delete do %>
+        <%= link_to activity_element_path(activity, element), method: :delete, data: { confirm: "for sure ?" } do %>
           <i class="fa fa-trash"></i>
         <% end %>
         <%= link_to edit_activity_element_path(activity, element) do %>
@@ -31,11 +31,11 @@
       <% if element.display == 'titre' %>
         <h2> <%= element.content %> </h2>
       <% elsif element.display == 'sous-titre' %>
-        <h3> <%= element.content %> </h3>
+        <h4> <%= element.content %> </h4>
       <% elsif element.display == 'paragraphe' %>
         <p> <%= simple_format(element.content) %> </p>
       <% elsif element.display == 'photo' %>
-      <%= cl_image_tag element.photo, class:"activity-photo" %>
+      <%= cl_image_tag element.photo, width: 1400, crop: :scale, class:"activity-photo" %>
       <% end %>
     </div>
   </div>
