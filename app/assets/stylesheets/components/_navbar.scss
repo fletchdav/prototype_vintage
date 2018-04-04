@@ -126,8 +126,22 @@ a.navbar-active {
   height: 60px;
   border-radius: 50%;
   }
+  .navbar-wagon {
+  background: white;
+  transition: all 0.3s ease;
+  height: 100px;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1;
+  transition: ease 0.5s;
+  opacity: 1;
+  }
   .navbar-hidden {
-  opacity: 0.9;
+  opacity: 1;
   }
 }
 
