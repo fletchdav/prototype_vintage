@@ -18,12 +18,12 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     authorize @activity
     @element = Element.new
-    @elements = @activity.elements.sort_by { |element| element.position }
-    i = 1
+    @elements = @activity.elements.sort_by { |element| - element.position }
+    i = @elements.length
     @elements.each do |element|
       element.position = i
       element.save
-      i +=1
+      i -=1
     end
   end
 
