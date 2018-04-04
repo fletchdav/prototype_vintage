@@ -85,7 +85,7 @@ a.navbar-active {
   color: #999999 !important;
   font-size: 15px !important;
   line-height: 22px !important;
-  padding: 10px 10px;
+  padding: 5px 10px;
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
@@ -103,7 +103,29 @@ a.navbar-active {
 }
 
 .dropdown-menu-right {
-  width:80vw;
-  margin-top:10vw;
   color: white !important;
+  a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 }
+
+
+#hamburger {
+  margin-right: 30px;
+  i {
+    color: black;
+  }
+}
+
+
+@media(max-width: 720px) {
+  .left > h2 {
+    font-size: 20px;
+  }
+  .navbar-wagon-brand {
+  height: 60px;
+  border-radius: 50%;
+  }
+}
+
