@@ -1,5 +1,5 @@
 
-<% elements.each do |element| %>
+<% elements.sort_by {|element| - element.position}.each do |element| %>
   <div class="element-wrap">
     <div class="element-content-for-index">
       <% if element.display == 'titre' %>
@@ -9,7 +9,7 @@
       <% elsif element.display == 'paragraphe' %>
         <p> <%= simple_format(element.content) %> </p>
       <% elsif element.display == 'photo' %>
-      <%= cl_image_tag element.photo, class:"activity-photo" %>
+      <%= cl_image_tag element.photo, width: 1400, crop: :scale, class:"activity-photo" %>
       <% end %>
     </div>
   </div>

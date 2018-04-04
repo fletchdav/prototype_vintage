@@ -1,5 +1,5 @@
     <div class="element-actions">
-      <%= link_to activity_element_path(activity, element), method: :delete do %>
+      <%= link_to activity_element_path(activity, element), method: :delete, data: { confirm: "for sure ?" } do %>
         <i class="fa fa-trash"></i>
       <% end %>
       <%= link_to edit_activity_element_path(activity, element) do %>

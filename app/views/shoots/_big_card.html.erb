@@ -1,7 +1,10 @@
 <div class="image-card">
-  <%= cl_image_tag shoot.photo, class:"big-screen" %>
+  <%= cl_image_tag shoot.photo, width: 1400, crop: :scale, class:"big-screen" %>
   <% if policy(shoot).edit? %>
-    <%=  link_to "effacer", shooting_shoot_path(@shooting, shoot), method: :delete  %>
-    <%= render 'shared/new_shoot_form', shooting:@shooting, shoot: shoot %>
+    <div class="edit-shoot-form">
+      <%= render 'shared/edit_shoot_form', shooting: @shooting, shoot: shoot %>
+    </div>
   <% end %>
 </div>
+
+

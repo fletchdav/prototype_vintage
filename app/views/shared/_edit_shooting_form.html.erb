@@ -1,0 +1,10 @@
+<div class="list-form">
+  <%= simple_form_for(list) do |f| %>
+    <%= f.input :title, placeholder: 'Titre', label:false %>
+    <%= f.submit "ok d'accord", class: "btn btn-prototype" %>
+    <%= link_to shooting_path(@shooting), method: :delete, data: { confirm: "for sure ?" } do %>
+      <div class="btn btn-prototype-danger"> Supprimer</div>
+    <% end %>
+  <% end %>
+</div>
+

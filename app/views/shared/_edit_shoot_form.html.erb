@@ -1,0 +1,12 @@
+  <%= simple_form_for [shooting, shoot] do |f| %>
+    <%= f.input :description, placeholder: 'Description', label:false %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.submit "ok d'accord", class: "btn btn-prototype" %>
+    <%=  link_to shooting_shoot_path(shooting, shoot), method: :delete, data: { confirm: "for sure ?" }  do %>
+      <div class="btn btn-prototype-danger"> Supprimer</div>
+    <% end %>
+  <% end %>
+
+
+

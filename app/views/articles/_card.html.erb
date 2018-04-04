@@ -24,7 +24,6 @@
       <% end %>
     <% end %>
     <% if policy(article).edit? %>
-      <%=  link_to "effacer", list_article_path(@list, article), method: :delete  %>
       <%= render 'shared/edit_article_principal_color', list:@list, article: article %>
     <% end %>
 </div>

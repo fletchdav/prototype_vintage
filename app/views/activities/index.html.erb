@@ -1,8 +1,5 @@
 <%= render 'shared/navbar' %>
 <div class="container">
-  <% if policy(Activity).new? %>
-    <%= render 'activities/new', activity: @activity %>
-  <% end %>
   <div class="activities">
     <% @activities.each do |activity|%>
       <div class="activity">
@@ -25,9 +22,17 @@
         <% end %>
       <% end %>
       <% if policy(Activity).edit? %>
-        <%= link_to "éditer", activity_path(activity) %>
+        <%= link_to activity_path(activity) do %>
+          <i class="fa fa-pencil"></i>
+        <% end %>
       <% end %>
       </div>
     <% end %>
   </div>
+  <% if policy(Activity).new? %>
+    <div class="new-article">
+      <h4>Ajouter une activité</h4>
+      <%= render 'activities/new', activity: @activity %>
+    </div>
+  <% end %>
 </div>

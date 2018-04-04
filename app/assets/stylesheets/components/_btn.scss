@@ -7,10 +7,37 @@
   opacity: 0.8;
 }
 .btn-prototype:hover {
+  opacity: 0.8;
+  background-color: $gray;
+  border: 1px solid $gray;
+  color: white;
+}
+
+a:hover {
+    text-decoration: none;
+  }
+
+.btn-prototype-danger {
+  color: red;
+  border: 1px solid red;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: lighter;
+  opacity: 0.8;
+}
+
+.btn-prototype-danger:hover {
+  color: white;
+  background-color: red;
+  border: 1px solid red;
+}
+
+.btn-prototype:hover {
   opacity: 1;
   text-decoration: none;
   color: #999999;
 }
+
 .btn-treehouse {
   color: white;
   padding: 10px 15px;
@@ -25,5 +52,14 @@
   text-decoration: none;
   color: white;
 }
+
+.fa {
+  color: $light-gray;
+  &:hover {
+    color: $gray;
+  }
+}
+
+
 
 /* Build your own button classes ! */
