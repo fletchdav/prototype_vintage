@@ -1,0 +1,15 @@
+
+<div class="mobilemenu hidden">
+  <div class="mobilemenu-list">
+     <%= link_to "Tous les produits", articles_path, class:"mobilemenu-item mobilemenu-category" %>
+    <% @lists.each do |list| %>
+      <%= link_to list.title, list_path(list), class:"mobilemenu-item"  %>
+    <% end %>
+    <%= link_to "Tous les moods", shoots_path, class:"mobilemenu-item mobilemenu-category" %>
+    <% @shootings.each do |shooting| %>
+       <%= link_to shooting.title, shooting_path(shooting), class:"mobilemenu-item"  %>
+    <% end %>
+     <%= link_to "About", about_path, class:"mobilemenu-item mobilemenu-category" %>
+    <%= link_to "Contact", contact_path, class:"mobilemenu-item mobilemenu-category" %>
+  </div>
+</div>

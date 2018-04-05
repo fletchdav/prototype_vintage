@@ -7,3 +7,6 @@ colorchoice();
 
 import { betterColorPicker } from '../components/color_picker'
 betterColorPicker();
+
+import { mobilemenu } from '../components/mobilemenu'
+mobilemenu();

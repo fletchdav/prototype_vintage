@@ -122,8 +122,8 @@ a.navbar-active {
     font-size: 20px;
   }
   .navbar-wagon-brand {
-  height: 60px;
-  border-radius: 50%;
+    height: 60px;
+    border-radius: 50%;
   }
   .navbar-wagon {
   background: white;
@@ -143,4 +143,34 @@ a.navbar-active {
   opacity: 1;
   }
 }
+
+.mobilemenu {
+  height: calc(100vh - 100px);
+  width: 100vw;
+}
+
+.mobilemenu-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 30px 30px;
+}
+
+a.mobilemenu-item {
+  color: $gray;
+  padding: 5px 0px;
+  &:active {
+    text-decoration: none;
+    color: $gray;
+  }
+  &:hover {
+    text-decoration: none;
+    color: $gray;
+  }
+}
+
+a.mobilemenu-item.mobilemenu-category {
+  font-weight: bolder;
+}
+
 
