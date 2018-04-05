@@ -52,3 +52,24 @@
   height: auto;
 }
 
+
+@media(max-width: 720px) {
+  .colcard:first-of-type > .image-container >.image-card {
+    margin-top: 0px;
+  }
+  .col-sm-4:first-of-type > .image-container >.image-card {
+    margin-top: 0px;
+  }
+  .container.shoot {
+    .image-card:first-child {
+      margin-top: 0px;
+    }
+  }
+  .activities {
+   .activity:first-child {
+      margin-top: 0px;
+    }
+  }
+}
+
+

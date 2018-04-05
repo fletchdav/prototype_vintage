@@ -9,6 +9,7 @@
     <% @shootings.each do |shooting| %>
        <%= link_to shooting.title, shooting_path(shooting), class:"mobilemenu-item"  %>
     <% end %>
+     <%= link_to "News", activities_path, class:"mobilemenu-item mobilemenu-category" %>
      <%= link_to "About", about_path, class:"mobilemenu-item mobilemenu-category" %>
     <%= link_to "Contact", contact_path, class:"mobilemenu-item mobilemenu-category" %>
   </div>
